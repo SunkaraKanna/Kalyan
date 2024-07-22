@@ -1,0 +1,43 @@
+/* Apply a CSS reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+body {
+   
+    display: flex;
+    
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;   
+    /* background-color: #f0f0f0; */
+   /* background-color: pink; */
+     background: url('../../assets/images/pexels-vojtech-okenka-392018.jpg') no-repeat;
+    background-size: cover;
+    
+
+}
+
+.login-container {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    max-width: 400px;
+    width: 100%;
+    
+}
+
+.login-container h1 {
+    margin-bottom: 20px;
+}
+
+.button { 
+    padding: 14px 40px;
+    font-size: 20px;
+    background-color: #555555;
+}

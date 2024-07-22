@@ -1,0 +1,46 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+     /* background-image: url('../../assets/images/pexels-vlada-karpovich-4050320.jpg'); \ */
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+
+
+.container h1 {
+    text-align: center;
+    
+}
+
+
+.container button {
+    display: block;
+    margin: 0 auto;
+}
+
+
+.container input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.container label {
+    font-weight: bold;
+}
+
+
+.container label a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.container label a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,178 @@
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+</head>
+
+<div style="padding-top: 273px ;background-image: url(../../assets/images/pexels-vlada-karpovich-4050320.jpg);">
+<div class="container" >
+    <form #regForm="ngForm" (ngSubmit)="jobseekerRegister(regForm.value)">
+    <h1 align="center" style="color: rgb(11, 0, 0);">Jobseeker Registration</h1>
+
+        <table align="center">
+            <tbody>
+                <tr>
+                    <td >Name:</td>
+                    <td><input type="text" name="name"placeholder="Enter Name" [(ngModel)]="employee.name" required /></td>
+                </tr>
+
+             <tr>
+            <td>emailId:</td> 
+           <div class="input-group">
+           
+
+            <input  type="text" name="emailId" placeholder="Enter Email" #emailId="ngModel" ngModel
+                required>
+           </div>
+           <div>
+            <div *ngIf="emailId.touched && emailId.invalid" class="error-text"><h6 style="color: red;">Please Enter Email</h6></div>
+            <div *ngIf="emailId.dirty && !validateMail(emailId.value)" class="error-text"><h6 style="color: red;">please Enter valid
+                email</h6></div>
+             </div> 
+            </tr>
+
+                <tr>
+                    
+                <td>mobile:</td>
+                <div class="input-group">
+                    
+        
+                    <input type="text" name="mobile" placeholder="Enter Mobile" #mobile="ngModel"
+                        ngModel required />
+                </div>
+                <div>
+                    <div *ngIf="mobile.touched && mobile.invalid" class="error-text"><h6 style="color: red;">Please Enter the
+                        number</h6>
+                    </div>
+                    <div *ngIf="!validateMobile(mobile.value) && mobile.dirty" class="error-text"><h6 style="color: red;">
+                        Mobile number must be 10 digits long and Mobile number's first digit cannot be 0, 1, 2, 3,
+                        4, or
+                        5</h6></div>
+                </div>
+            </tr>                 
+            <tr>
+                <td>password:</td>
+                <div class="input-group">
+                    
+        
+                    <input  type="password" placeholder="Enter password" name="password"
+                        #passwordInput="ngModel" ngModel [(ngModel)]="employee.password" pattern="^(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%*?&]{8,}$" />
+                </div>
+                <div *ngIf="passwordInput.invalid && passwordInput.dirty">
+                    <div *ngIf="!validatePassword(passwordInput.value)" class="error-text"><h6 style="color: red;">Password must contain
+                        at
+                        least one uppercase letter, one number, and one special character.</h6></div>
+                </div>
+            </tr>
+        
+
+                <tr>
+                    <td>Address</td>
+                    <td><input type="text" name="address" placeholder="Enter Address" [(ngModel)]="employee.address" required /></td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <select name="gender" [(ngModel)]="employee.gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="others">Others</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Location:</td>
+                    <td>
+                        <select name="location" [(ngModel)]="employee.location" required>
+                            <option value="">Select Location</option>
+                            <option value="VSKP">Visakhapatnam</option>
+                            <option value="VJY">Vijayawada</option>
+                            <option value="HYD">Hyderabad</option>
+                            <option value="CTR">Chittoor</option>
+                            <option value="KDP">Kadapa</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>Service Type:</td>
+                    <td>
+                        <select name="serviceType" [(ngModel)]="employee.serviceType" required>
+                            <option value="">Select service Type</option>
+                            <option value="labour">Labour</option>
+                            <option value="Technicians">Technicians</option>
+                            <option value="Event management">Event Management</option>
+                            <option value="House keeping">House Keeping</option>
+                            <option value="Delivery services">Delivery Services</option>
+                        </select>
+
+                        <div *ngIf="employee.serviceType === 'labour'">
+                            <select name="LabourOptions">
+                                <option value="">Select Labour Option</option>
+                                <option value="construction">construction</option>
+                                <option value="goods shifting">goods shifting</option>
+                                <option value="painting">painting</option>
+                            </select>
+                        </div>
+
+                        <div *ngIf="employee.serviceType === 'Technicians'">
+                            <select name="Technicians">
+                                <option value="">Select Technicians Option</option>
+                                <option value="Driver">Driver</option>
+                                <option value="Plumber">Plumber</option>
+                                <option value="Carpenter">Carpenter</option>
+                                <option value="electrician">electrician</option>
+                                <option value="Mechanic">Mechanic</option>
+                            </select>
+                        </div>
+
+                        <div *ngIf="employee.serviceType === 'Event management'">
+                            <select name="Event management">
+                                <option value="">Select Event managementOption</option>
+                                <option value="Catering">Catering</option>
+                                <option value="Decoration">Decoration</option>
+                                <option value="Sound systems">Sound systems</option>
+                                <option value="Photography">Photography</option>
+                            </select>
+                        </div>
+
+                        <div *ngIf="employee.serviceType === 'House keeping'">
+                            <select name="House keeping">
+                                <option value="">Select House keeping Option</option>
+                                <option value="Gardening">Gardening</option>
+                                <option value="Maid services">Maid services</option>
+                                <option value="cleaning">cleaning</option>
+                                <option value="cooking">cooking</option>
+                                <option value="Laundry">Laundry</option>
+                            </select>
+                        </div>
+
+                        <div *ngIf="employee.serviceType === 'Delivery services'">
+                            <select name="Delivery services">
+                                <option value="">Select Delivery services Option</option>
+                                <option value="Food delivery">Food delivery</option>
+                                <option value="Groceries">Groceries</option>
+                                <option value="Package delivery">Package delivery</option>
+                                <option value="Medicines">Medicines</option>
+                            </select>
+                        </div>
+
+                    </td>
+                </tr>
+                <div>
+                    <input type="checkbox" id="acceptTerms" name="acceptTerms" required>
+                    <label for="acceptTerms"> I accept the <a href="terms_and_conditions.html" target="_blank">Terms and Conditions</a></label>
+                </div>
+        
+                <tr>
+                    <td colspan="2" align="center">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </form>
+</div>
+</div>

@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('../../assets/images/pexels-vojtech-okenka-392018.jpg') no-repeat;
+    background-size: cover;
+
+}
+
+
+/* .full-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    padding-left: 2rem; 
+} */
+
+/* Style the main container */
+.main-container {
+    background-color: #fff; 
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+/* Style the "My Account" heading with increased font size */
+.side-menu-title {
+    font-weight: bold;
+    font-size: 24px; /* Increased font size */
+    color: black;
+}
+
+/* Style the list items with increased font size and blue text */
+.nonav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nonav-list li {
+    margin-bottom: 10px;
+    font-size: 18px; /* Increased font size */
+    color: blue; /* Text color is blue */
+}
+
+/* Remove underlines from links */
+.nonav-list a {
+    text-decoration: none;
+}
+
+/* Style the active menu item with increased font size */
+.active {
+    font-size: 20px; /* Increased font size */
+}
